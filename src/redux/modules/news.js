@@ -31,6 +31,13 @@ const initialState = {
             writter: 'Johny Silverhand',
             body: 'For two weeks our food price will be higher than last month prepare your money!',
 
+        },
+        {
+            id: '2',
+            title: 'BBM Turun',
+            writter: 'Pwan',
+            body: 'MIMPI!',
+
         }
     ],
 

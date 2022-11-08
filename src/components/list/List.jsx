@@ -11,20 +11,21 @@ const List = () => {
 
     return (
         <Container fluid>
-         <Row className='mt-3'>
-           {news.map((item) => {
-           return (
-            <Col key={item.id}>
-                <Card bg='secondary' text='white'>
-                <Card.Body>
-                    <h3>Title : {item.title}</h3>
-                    <p>written by : {item.writter}</p>
-                </Card.Body>
-                </Card>
-            </Col>
-           );
-           })}
-        </Row>
+            <h2>News List</h2>
+            <ul>
+                {news.map((item) => {
+                    return (
+                        <Col key={item.id}>
+                            <Card bg='secondary' text='white'>
+                                <Card.Body>
+                                    <h3>Title : {item.title}</h3>
+                                    <p>written by : {item.writter}</p>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    );
+                })}
+            </ul>
         </Container>
     );
 }
