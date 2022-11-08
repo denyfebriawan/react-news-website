@@ -11,6 +11,9 @@ const Create = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const id = nextId();
+    const navigateHome = () => {
+        navigate("/");
+    }
 
     const [news, setNews] = useState({
         id: 0,
@@ -35,6 +38,7 @@ const Create = () => {
             writter: "",
             body: "",
         })
+        navigateHome();
     }
 
     return (
@@ -74,9 +78,7 @@ const Create = () => {
                                     <Button
                                         variant="primary"
                                         className="mt-3 text-center"
-                                        onClick={() => {
-                                            navigate("/")
-                                        }}
+                                        onClick={onSubmitHandler}
                                     >SUBMIT</Button>
                                 </Form.Group>
                             </Card.Body>
