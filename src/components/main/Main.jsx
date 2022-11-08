@@ -1,15 +1,15 @@
-import styled from 'styled-components';
 
-const Container = styled.div`
-    border: 1px solid ;
-`;
+import Header from "../header/Header";
+import 'bootstrap/dist/css/bootstrap.css';
+
+
 
 
 const Main = () => {
     return (
-        <div>
-            HELLO
-        </div>
+       <>
+        <Header/>
+       </>
     )
 }
 
