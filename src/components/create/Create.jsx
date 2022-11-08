@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import nextId from "react-id-generator";
 import { addNews } from "../../redux/modules/news";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
     const navigate = useNavigate();
@@ -45,37 +45,34 @@ const Create = () => {
                 <Col>
                     <Card bg="secondary" text="white">
                         <Card.Body>
-                        <Form.Group className="mb-3" controlId="formBasicEmail" onSubmit={onSubmitHandler}>
-                            <Form.Label>News Title</Form.Label>
-                            <Form.Control 
-                                type="text"
-                                name="title"
-                                value={news.title}
-                                onChange={onChangeHandler}
-                            />
-                            <Form.Label>News Writter</Form.Label>
-                            <Form.Control 
-                                type="text"
-                                name="writter"
-                                value={news.writter}
-                                onChange={onChangeHandler}
-                            />
-                            <Form.Label>News Body</Form.Label>
-                            <Form.Control 
-                                type="text"
-                                name="body"
-                                value={news.body}
-                                onChange={onChangeHandler}
-                            />
+                            <Form.Group className="mb-3" controlId="formBasicEmail" onSubmit={onSubmitHandler}>
+                                <Form.Label>News Title</Form.Label>
+                                <Form.Control 
+                                    type="text"
+                                    name="title"
+                                    value={news.title}
+                                    onChange={onChangeHandler}
+                                />
+                                <Form.Label>News Writter</Form.Label>
+                                <Form.Control 
+                                    type="text"
+                                    name="writter"
+                                    value={news.writter}
+                                    onChange={onChangeHandler}
+                                />
+                                <Form.Label>News Body</Form.Label>
+                                <Form.Control 
+                                    type="text"
+                                    name="body"
+                                    value={news.body}
+                                    onChange={onChangeHandler}
+                                />
 
-                            <Button 
-                            variant="primary" 
-                            className="mt-3 text-center"
-                            onClick={() => {
-                                navigate("/")
-                            }}
-                            >SUBMIT</Button>
-                        </Form.Group>
+                                <Button 
+                                variant="primary" 
+                                className="mt-3 text-center"
+                                >SUBMIT</Button>
+                            </Form.Group>
                         </Card.Body>
                     </Card>
                 </Col>
