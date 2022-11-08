@@ -16,7 +16,7 @@ const Header = () => {
                 navigate("/")
             }}>Home</Nav.Link>
             <Nav.Link onClick={() => {
-                navigate("/addNews")
+                navigate("/add-news")
             }}>Form</Nav.Link>
             
           </Nav>

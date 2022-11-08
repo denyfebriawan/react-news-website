@@ -28,6 +28,7 @@ const initialState = {
         {
             id: '1',
             title: 'Food price rise significantly',
+            writter: 'Johny Silverhand',
             body: 'For two weeks our food price will be higher than last month prepare your money!',
 
         }
