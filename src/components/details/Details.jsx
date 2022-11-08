@@ -11,7 +11,7 @@ import Header from "../header/Header";
 const Detail = () => {
     const dispatch = useDispatch();
     const news = useSelector((state) => state.news.p_news);
-    const {id} = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -21,27 +21,27 @@ const Detail = () => {
 
     return (
         <>
-        <Header/>    
-            <Card  style=
-            {{ 
-                maxWidth: "1000px",
-                margin: "auto",
-                marginTop: "50px",
-            }}
+            <Header />
+            <Card style=
+                {{
+                    maxWidth: "1000px",
+                    margin: "auto",
+                    marginTop: "50px",
+                }}
             >
                 <Card.Header
                     className="text-center"
                 >
-                <h2>{news.title}</h2>
-                <br />
-                Written by: {news.writter}
-            </Card.Header>
-             <Card.Body>
+                    <h2>{news.title}</h2>
+                    <br />
+                    Written by: {news.writter}
+                </Card.Header>
+                <Card.Body>
                     <TextWrapper>{news.body}</TextWrapper>
                 </Card.Body>
             </Card>
-           
-        
+
+
         </>
     );
 }
