@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { getNewsByID } from "../../redux/modules/news";
 import Header from "../header/Header";
+import axios from "axios";
 
 
 const Detail = () => {
@@ -14,10 +15,24 @@ const Detail = () => {
     const {id} = useParams();
    
 
-    useEffect(() => {
-        dispatch(getNewsByID(id));
+    // useEffect(() => {
+    //     dispatch(getNewsByID(id));
 
-    }, [dispatch, id]);
+    // }, [dispatch, id]);
+
+    const [todos, setTodos] = useState([]);
+
+	
+  const fetchTodos = async () => {
+    const { data } = await axios.get(`https://advance-react-team9.herokuapp.com/news/${id}`);
+    setTodos(data); 
+  };
+	
+	
+   useEffect(() => {
+		
+    fetchTodos();
+  }, []);
 
     return (
         <>
@@ -32,12 +47,12 @@ const Detail = () => {
                 <Card.Header
                     className="text-center"
                 >
-                <h2>{news.title}</h2>
+                <h2>{todos.title}</h2>
                 <br />
-                Written by: {news.writter}
+                Written by: {todos.writter}
             </Card.Header>
              <Card.Body>
-                    <TextWrapper>{news.body}</TextWrapper>
+                    <TextWrapper>{todos.body}</TextWrapper>
                 </Card.Body>
             </Card>
            

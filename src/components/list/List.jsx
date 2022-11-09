@@ -7,6 +7,8 @@ import { Card, Button } from 'react-bootstrap';
 import { BsTrash,BsPencilSquare } from 'react-icons/bs'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const List = () => {
     const dispatch = useDispatch();
@@ -15,9 +17,34 @@ const List = () => {
         dispatch(deleteNews(id));
     }
 
+
+
+    const onClickDeleteButtonHandler = (todoId) => {
+        axios.delete(`https://advance-react-team9.herokuapp.com/news/${todoId}`);
+        alert("News has been deleted!");
+        window.location.reload();
+      };
+    const [todos, setTodos] = useState([]);
+
+	// Create a function that makes a get request through axios.
+	// Since we need to do asynchronous processing, we process it through async/await syntax.
+  const fetchTodos = async () => {
+    const { data } = await axios.get("https://advance-react-team9.herokuapp.com/news");
+    setTodos(data); // Set the data fetched from the server as the state of useState.
+  };
+	
+	// Use useEffect to execute the created function when the component is mounted.
+   useEffect(() => {
+		// Put the created function in the effect statement and execute it.
+    fetchTodos();
+  }, []);
+
+	// Check through the console whether data fetching is normal.
+  console.log(todos);
+
     return (
         <Container fluid="md">
-           {news.map((item) => {
+           {todos.map((item) => {
                return (
                 <Row className='mt-3' key={item.id}>
                    <Col>
@@ -32,7 +59,7 @@ const List = () => {
                             <Col>
                                 <Button 
                                     variant='danger'
-                                    onClick={() => onDeleteNews(item.id)}
+                                    onClick={() => onClickDeleteButtonHandler(item.id)}
                                 >
                                 <BsTrash/>
                                 </Button>
