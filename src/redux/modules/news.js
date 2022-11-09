@@ -1,6 +1,7 @@
 const ADD_NEWS = "ADD_NEWS";
 const GET_NEWS_BY_ID = "GET_NEWS_BY_ID";
 const DELETE_NEWS = "DELETE_NEWS";
+const EDIT_NEWS = "EDIT_NEWS";
 
 export const addNews = (payload) => {
     return {
@@ -23,6 +24,13 @@ export const getNewsByID = (payload) => {
     }
 }
 
+export const editNews = (payload) => {
+    return {
+        type: EDIT_NEWS,
+        payload,
+    }
+}
+
 const initialState = {
     news: [
         {
@@ -37,6 +45,7 @@ const initialState = {
     p_news: {
         id:'0',
         title:'',
+        writter:'',
         body:'',
     }
 }
@@ -62,6 +71,12 @@ const news = (state=initialState, action) => {
                     return p_news.id === action.payload;
                 }),
             };
+
+        case EDIT_NEWS:
+            return {
+                ...state,
+                news: [...state.news, action.payload]
+            }
             
     
         default:

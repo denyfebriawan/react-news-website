@@ -19,8 +19,8 @@ const List = () => {
         <Container fluid="md">
            {news.map((item) => {
                return (
-                <Row className='mt-3'>
-                   <Col key={item.id}>
+                <Row className='mt-3' key={item.id}>
+                   <Col>
                 <Card bg='secondary' text='white'>
                 <Card.Body className='d-flex justify-content-between'>
                     <div>
