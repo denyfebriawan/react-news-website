@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { editNews, getNewsByID } from "../../redux/modules/news";
+import { addNews, editNews, getNewsByID } from "../../redux/modules/news";
 import Header from "../header/Header";
 
 const Edit = () => {
@@ -28,6 +28,7 @@ const Edit = () => {
     const onChangeHandler = (event) => {
         const {name, value} = event.target;
         setNews({...news, [name]:value})
+        
     }
 
     const onSubmitHandler = (event) => {
@@ -57,8 +58,8 @@ const Edit = () => {
                                 <Form.Control 
                                     type="text"
                                     name="title"
-                                    new_value={news.title}
-                                    value={p_news.title}
+                                    
+                                    value={news.title || p_news.title}
                                     onChange={onChangeHandler}
                                     
                                 />
@@ -66,8 +67,8 @@ const Edit = () => {
                                 <Form.Control 
                                     type="text"
                                     name="writter"
-                                    new_value={news.writter}
-                                    value={p_news.writter}
+                                   
+                                    value={news.writter || p_news.writter}
                                     onChange={onChangeHandler}
                                     
                                 />
@@ -75,8 +76,8 @@ const Edit = () => {
                                 <Form.Control 
                                     type="text"
                                     name="body"
-                                    new_value={news.body}
-                                    value={p_news.body}
+                                    
+                                    value={news.body || p_news.body}
                                     onChange={onChangeHandler}
                                     
                                 />

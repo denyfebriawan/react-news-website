@@ -75,7 +75,20 @@ const news = (state=initialState, action) => {
         case EDIT_NEWS:
             return {
                 ...state,
-                news: [...state.news, action.payload]
+                news: state.news.map((p_news) => {
+                    if(p_news.id === action.payload.id) {
+                        
+                        return {
+                            ...p_news,
+                            id: action.payload.id,
+                            title: action.payload.title,
+                            writter: action.payload.writter,
+                            body: action.payload.body
+                        }
+                    } else {
+                        return p_news;
+                    }
+                })
             }
             
     
