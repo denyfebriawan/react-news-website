@@ -35,6 +35,7 @@ const Create = () => {
             writter: "",
             body: "",
         })
+        navigate("/")
     }
 
     return (
@@ -45,7 +46,7 @@ const Create = () => {
                 <Col>
                     <Card bg="secondary" text="white">
                         <Card.Body>
-                            <Form.Group className="mb-3" controlId="formBasicEmail" onSubmit={onSubmitHandler}>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>News Title</Form.Label>
                                 <Form.Control 
                                     type="text"
@@ -71,6 +72,8 @@ const Create = () => {
                                 <Button 
                                 variant="primary" 
                                 className="mt-3 text-center"
+                                
+                                onClick={onSubmitHandler}
                                 >SUBMIT</Button>
                             </Form.Group>
                         </Card.Body>

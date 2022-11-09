@@ -17,10 +17,10 @@ const List = () => {
 
     return (
         <Container fluid="md">
-         <Row className='mt-3'>
            {news.map((item) => {
-           return (
-            <Col key={item.id}>
+               return (
+                <Row className='mt-3'>
+                   <Col key={item.id}>
                 <Card bg='secondary' text='white'>
                 <Card.Body className='d-flex justify-content-between'>
                     <div>
@@ -41,8 +41,12 @@ const List = () => {
                                 <Button
                                     variant='warning'
                                 >
-                                    <BsPencilSquare/>
-                                    
+                                    <BTNEdit
+                                         className='no_hover'
+                                         to={`/edit/${item.id}`} key={item.id}
+                                    >
+                                        <BsPencilSquare/>  
+                                    </BTNEdit>
                                 </Button>
                             </Col>
                             
@@ -60,9 +64,9 @@ const List = () => {
                 </Card.Body>
                 </Card>
             </Col>
+        </Row>
            );
            })}
-        </Row>
         </Container>
     );
 }
@@ -80,6 +84,10 @@ const BTNLink = styled(Link)`
     &:hover.no_hover {
         color: inherit;
     }
+`;
+
+const BTNEdit = styled(Link)`
+     text-decoration: none;
 `;
 
 

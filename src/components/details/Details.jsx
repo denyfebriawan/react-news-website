@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
-import { Card, Container, Row } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { getNewsByID } from "../../redux/modules/news";
 import Header from "../header/Header";
@@ -12,7 +12,7 @@ const Detail = () => {
     const dispatch = useDispatch();
     const news = useSelector((state) => state.news.p_news);
     const {id} = useParams();
-    const navigate = useNavigate();
+   
 
     useEffect(() => {
         dispatch(getNewsByID(id));
