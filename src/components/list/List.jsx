@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteNews } from '../../redux/modules/news';
 import { Card, Button } from 'react-bootstrap';
 import { BsTrash, BsPencilSquare } from 'react-icons/bs'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const List = () => {
@@ -14,10 +14,14 @@ const List = () => {
     const onDeleteNews = (id) => {
         dispatch(deleteNews(id));
     }
+    const navigate = useNavigate();
 
     return (
         <Container fluid="md">
-            <Row className='mt-3'>
+            <h3>
+                News List
+            </h3>
+            <ul>
                 {news.map((item) => {
                     return (
                         <Col key={item.id}>
@@ -40,6 +44,7 @@ const List = () => {
                                             <Col>
                                                 <Button
                                                     variant='warning'
+                                                    onClick={() => { navigate("/edit-news") }}
                                                 >
                                                     <BsPencilSquare />
 
@@ -62,7 +67,7 @@ const List = () => {
                         </Col>
                     );
                 })}
-            </Row>
+            </ul>
         </Container>
     );
 }

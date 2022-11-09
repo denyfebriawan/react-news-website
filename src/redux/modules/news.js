@@ -1,6 +1,7 @@
 const ADD_NEWS = "ADD_NEWS";
 const GET_NEWS_BY_ID = "GET_NEWS_BY_ID";
 const DELETE_NEWS = "DELETE_NEWS";
+const EDIT_NEWS = "EDIT_NEWS";
 
 export const addNews = (payload) => {
     return {
@@ -11,8 +12,15 @@ export const addNews = (payload) => {
 
 export const deleteNews = (payload) => {
     return {
-    type: DELETE_NEWS,
-    payload,
+        type: DELETE_NEWS,
+        payload,
+    }
+}
+
+export const editNews = (payload) => {
+    return {
+        type: EDIT_NEWS,
+        payload,
     }
 }
 
@@ -42,24 +50,31 @@ const initialState = {
     ],
 
     p_news: {
-        id:'0',
-        title:'',
-        body:'',
+        id: '0',
+        title: '',
+        body: '',
     }
 }
 
-const news = (state=initialState, action) => {
+const news = (state = initialState, action) => {
     switch (action.type) {
         case ADD_NEWS:
             return {
                 ...state,
                 news: [...state.news, action.payload],
             };
-        
+
         case DELETE_NEWS:
             return {
                 ...state,
                 news: state.news.filter((p_news) => p_news.id !== action.payload),
+            };
+        
+        case EDIT_NEWS:
+            return {
+                ...state,
+                news: state.news.filter((p_news) => p_news.id !== action.payload),
+                news: [...state.news, action.payload],
             };
 
         case GET_NEWS_BY_ID:
@@ -69,8 +84,8 @@ const news = (state=initialState, action) => {
                     return p_news.id === action.payload;
                 }),
             };
-            
-    
+
+
         default:
             return state;
     }

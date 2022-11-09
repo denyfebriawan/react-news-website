@@ -45,6 +45,9 @@ const Create = () => {
         <>
             <Header />
             <Container fluid>
+            <h3>
+                Add News
+            </h3>
                 <Row className="mt-3">
                     <Col>
                         <Card bg="secondary" text="white">
