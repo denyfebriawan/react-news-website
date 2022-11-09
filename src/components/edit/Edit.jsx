@@ -33,16 +33,21 @@ const Edit = () => {
 
     const onSubmitHandler = (event) => {
         event.preventDefault();
-        if (news.title.trim() === "" || news.writter.trim() === "" || news.body.trim() === "") return;
+        if (news.title.trim() === "" || news.writter.trim() === "" || news.body.trim() === "") {
+            alert("Fill all the form")
+        } else {
 
-        dispatch(editNews({...news, id}));
-        setNews({
-            id: 0,
-            title: "",
-            writter: "",
-            body: "",
-        })
-        navigate("/")
+            dispatch(editNews({...news, id}));
+            setNews({
+                id: 0,
+                title: "",
+                writter: "",
+                body: "",
+            })
+            alert("News has been edited")
+            navigate("/")
+        }
+
     }
 
     return (

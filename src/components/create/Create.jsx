@@ -26,16 +26,21 @@ const Create = () => {
 
     const onSubmitHandler = (event) => {
         event.preventDefault();
-        if (news.title.trim() === "" || news.writter.trim() === "" || news.body.trim() === "") return;
+        if (news.title.trim() === "" || news.writter.trim() === "" || news.body.trim() === "") {
+            alert("Fill all the form!")
+        } else {
 
-        dispatch(addNews({...news, id}));
-        setNews({
-            id: 0,
-            title: "",
-            writter: "",
-            body: "",
-        })
-        navigate("/")
+            dispatch(addNews({...news, id}));
+            setNews({
+                id: 0,
+                title: "",
+                writter: "",
+                body: "",
+            })
+            alert("New news has been added")
+            navigate("/")
+        }
+
     }
 
     return (

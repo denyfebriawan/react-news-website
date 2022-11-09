@@ -2,8 +2,15 @@
     "news": [
         {
             "id": 10,
-            "title": "BERITA",
-            "author": "JOHNSON"
+            "title": "NEWS",
+            "writter": "JOHNSON",
+            "body": "THIS IS JOHNSON NEWS"
+        },
+        {
+            "id": 11,
+            "title": "NEWS2",
+            "writter": "JOHNSON2",
+            "body": "THIS IS JOHNSON NEWS2"
         }
     ]
   }

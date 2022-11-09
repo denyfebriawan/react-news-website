@@ -59,9 +59,11 @@ const news = (state=initialState, action) => {
             };
         
         case DELETE_NEWS:
+            alert("News has been deleted")
             return {
                 ...state,
                 news: state.news.filter((p_news) => p_news.id !== action.payload),
+                
             };
 
         case GET_NEWS_BY_ID:
