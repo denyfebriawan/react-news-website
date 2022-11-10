@@ -39,7 +39,7 @@ const List = () => {
     }, []);
 
     // Check through the console whether data fetching is normal.
-    console.log(todos);
+   
 
     const [query, setQuery] = useState('');
 
@@ -47,7 +47,7 @@ const List = () => {
     return (
 
         <Container fluid="md">
-            <Form className="d-flex">
+            <Form className="d-flex m-3">
                 <Form.Control
                     type="search"
                     placeholder="Search"
