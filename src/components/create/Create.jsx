@@ -64,9 +64,14 @@ const Create = () => {
       };
     
       const onSubmitHandler = (todo) => {
-        axios.post("https://advance-react-team9.herokuapp.com/news", todo)
-        alert('News has been added!');
-        navigate("/");
+        if (todo.title.trim() === "" || todo.writter.trim() === "" || todo.body.trim() === "") {
+          alert("Fill all the form!")
+        } else {
+
+          axios.post("https://advance-react-team9.herokuapp.com/news", todo)
+          alert('News has been added!');
+          navigate("/");
+        }
        
       };
     
