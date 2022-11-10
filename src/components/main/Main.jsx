@@ -5,7 +5,6 @@ import List from "../list/List";
 
 
 
-
 const Main = () => {
     return (
        <>
